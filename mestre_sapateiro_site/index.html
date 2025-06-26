@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mestre Sapateiro</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      font-family: Arial, sans-serif;
+      height: 100%;
+    }
+
+    body {
+      background: url('./Imagem\ Fundo.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 5px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ccff;
+    }
+    
+    .logo-instagram {
+      width: 40px;
+    
+    }
+
+    .logo-whatsapp {
+      width: 40px; 
+        }
+
+    .links-sociais a {
+      margin-left: 45px;
+      text-decoration: none;
+      font-size: 16px;
+      color: white;
+    }
+
+  
+    main {
+      padding-top: 80px;
+      text-align: center;
+    }
+
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px 40px;
+    }
+
+    .logo-container img {
+      max-width: 500px;
+      height: auto;
+    }
+
+    section {
+      padding: 60px 30px;
+      background-color: rgba(0, 0, 0, 0.3);
+      margin: 20px unset ;
+      max-width: 350px;
+      border-radius: 10px;
+    }
+
+    section h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #00ccff;
+    }
+
+    section p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    #orcamento form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 16px;
+      color: white;
+    }
+
+    #orcamento input,
+    #orcamento textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+
+    #orcamento button {
+      background-color: #25D366;
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #orcamento button:hover {
+      background-color: #1ebe5d;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#servicos">Nossos Serviços</a>
+      <a href="#antes-depois">Antes e Depois</a>
+      <a href="#galeria">Galeria de Fotos</a>
+    </nav>
+    <div class="links-sociais">
+      <a href="https://instagram.com/omestresapateiro" target="_blank"> <img class="logo-instagram" src="./logo instagram.png" alt="instagram"></a>
+      <a href="https://wa.me/559998360155"  target="_blank"> <img class="logo-whatsapp" src="./logo whatsapp.png" alt="whatsapp"></a>
+  
+    </div>
+  </header>
+
+  <main>
+    <div class="logo-container">
+      <img src="./Imagem logo.png" Logo Mestre Sapateiro>
+    </div>
+
+   
+    <section id="orcamento">
+      <h2>Peça seu Orçamento</h2>
+      <form id="form-orcamento" onsubmit="enviarParaWhatsApp(); return false;">
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="servico">Serviço desejado:</label><br>
+        <input type="text" id="servico" name="servico" required><br><br>
+
+        <label for="obs">Observações:</label><br>
+        <textarea id="obs" name="obs" rows="4"></textarea><br><br>
+
+        <button type="submit">Enviar pelo WhatsApp</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    function enviarParaWhatsApp() {
+      const nome = document.getElementById('nome').value;
+      const servico = document.getElementById('servico').value;
+      const obs = document.getElementById('obs').value;
+
+      const mensagem = `Olá, me chamo ${nome}. Gostaria de solicitar um orçamento para o serviço: ${servico}.%0AObservações: ${obs}`;
+      const numero = "559998360155";
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+</html>
